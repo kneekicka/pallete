@@ -1,0 +1,118 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+#grid {
+  width: 500px;
+  height: 500px;
+}
+
+#grid tr {
+  height: 50px;
+}
+
+#grid td {
+  width: 50px;
+  border: 1px solid black;
+}
+
+#controls {
+  width: 100%;
+  height: 100px;
+}
+
+#resetBtn, #saveBtn, #loadBtn {
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 80px;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+#resetBtn:hover, #saveBtn:hover, #loadBtn:hover {
+    background-color: #1c94c4;
+    cursor: pointer;
+}
+
+#picker {
+    padding-top: 50px;
+}
+
+#colors div {
+    margin: 0;
+    padding: 0;
+}
+
+#colors div div {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+#json {
+    text-align: center;
+    width: 100%;
+    font-size: large;
+    margin-top: 50px;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#black {
+    background-color: black;
+}
+
+.over {
+    border: 2px dashed black !important;
+}
+
+.target {
+    background-color: #ddd;
+    opacity: .5;
+}
+
+[draggable] {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: move;
+    border:1px solid black;
+}

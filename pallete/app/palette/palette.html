@@ -1,0 +1,43 @@
+<div id="main">
+    <div id="controls" class="col-md-12">
+        <div id="resetBtn" onclick="window.location.reload()">Reset</div>
+        <div id="saveBtn" onclick="download('grid.json', document.getElementById('jsonSpan').innerHTML)"> Save </div>
+        <div id="loadBtn" onclick="document.getElementById('jsonData').style.display = 'block'"> Load </div>
+    </div>
+    <div class="col-md-12" style="display: none" id="jsonData">
+        <h2>Paste saved JSON below:</h2>
+        <textarea style="width: 100%; height: 150px"  id="jsonText" ></textarea>
+        <input type="button" value="Load" ng-click="loadData()" />
+    </div>
+    <div class="col-md-12">
+        <div id="picker" class="col-md-3">
+            <h2>Palette</h2>
+            <div id="colors">
+                <div>
+                    <div id="red" x-draggable="true" data-color="255,0,0"></div>
+                </div>
+                <div>
+                    <div id="green" x-draggable="true" data-color="0,255,0"></div>
+                </div>
+                <div>
+                    <div id="blue" x-draggable="true" data-color="0,0,255"></div>
+                </div>
+                <div>
+                    <div id="black" x-draggable="true" data-color="0,0,0"></div>
+                </div>
+            </div>
+        </div>
+        <div id="gridCont" class="col-md-9">
+            <h2>Grid</h2>
+            <table cellpadding="0" cellspacing="0" id="grid">
+                <tr ng-repeat="row in grid">
+                    <td ng-repeat="cell in row" style="color: rgb({{cell.color}}); background-color: rgb({{cell.color}})"  x-drop-target="true" x-on-drop="dropped(dragEl, dropEl)">{{$index}},{{$parent.$index}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="json" class="col-md-12">
+        <h2>JSON:</h2>
+        <span id="jsonSpan">{{grid}}</span>
+    </div>
+</div>
